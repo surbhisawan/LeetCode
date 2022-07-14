@@ -1,3 +1,3 @@
-select name 
+select name
 from customer
-where referee_id!=2 or referee_id is null;
+where referee_id is NULL or referee_id!=2;
