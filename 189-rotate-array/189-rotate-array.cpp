@@ -3,13 +3,11 @@ class Solution
 public:
     void rotate(vector<int>& nums, int k)
     {
-        int n = nums.size();
-        if(k >= n)
-        {
-            k = k % n;
+        int n=nums.size();
+        vector<int>num(n);
+        for(int i=0;i<n;i++){
+            num[(i+k)%n]=nums[i];
         }
-        reverse(nums.begin(), nums.end());          // [7 6 5 4 3 2 1]
-        reverse(nums.begin(), nums.begin() + k);    // [5 6 7]  4 3 2 1
-        reverse(nums.begin() + k, nums.end()); 
+        nums=num;
     }
 };
