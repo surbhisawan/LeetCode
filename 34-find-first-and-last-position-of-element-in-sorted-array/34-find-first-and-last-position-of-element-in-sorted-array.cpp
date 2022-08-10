@@ -1,40 +1,53 @@
 class Solution {
 public:
     
-    int firstOccurance(vector<int>nums, int n,int target){
-        int s=0,e=n-1,mid;
+    int firstOccurence(vector<int>&nums, int key){
+        int n=nums.size();
+        int start=0,end=n-1;
         int ans=-1;
-        while(s<=e){
-            mid=s+(e-s)/2;
-            if(nums[mid]==target){
+        while(start<=end){
+            int mid=start+(end-start)/2;
+            if(nums[mid]==key){
                 ans=mid;
-                e=mid-1;
+                end=mid-1;
             }
-            else if(nums[mid]>target) e=mid-1;
-            else s=mid+1;
+            else if(nums[mid]<key){
+                start=mid+1;
+            }
+            else
+            {
+                end=mid-1;
+            }
         }
         return ans;
     }
     
-    int lastOccurance(vector<int>nums, int n,int target){
-        int s=0,e=n-1,mid;
+    
+    int lastOccurence(vector<int>&nums, int key){
+        int n=nums.size();
+        int start=0,end=n-1;
         int ans=-1;
-        while(s<=e){
-            mid=s+(e-s)/2;
-            if(nums[mid]==target){
+        while(start<=end){
+            int mid=start+(end-start)/2;
+            if(nums[mid]==key){
                 ans=mid;
-                s=mid+1;
+                start=mid+1;
             }
-            else if(nums[mid]>target) e=mid-1;
-            else s=mid+1;
+            else if(nums[mid]>key){
+                end=mid-1;
+            }
+            else{
+                start=mid+1;
+            }
         }
         return ans;
     }
+    
+   
     
     vector<int> searchRange(vector<int>& nums, int target) {
-        int n=nums.size();
-        int a = firstOccurance(nums, n, target);
-        int b = lastOccurance(nums, n, target);
+        int a=firstOccurence(nums,target);
+        int b=lastOccurence(nums,target);
         return {a,b};
     }
 };
