@@ -1,4 +1,4 @@
 select c.name as 'Customers'
-from Customers c left join orders o
+from Customers c left join Orders o
 on c.id=o.customerId
-where o.customerid is null;
+where o.customerId is null;
