@@ -6,10 +6,10 @@ class Solution {
        int maxSal = salary[size-1];
        int n=size-2; 
        double sum=0;
-       for(int i=1;i<size-1;i++){
+       for(int i=0;i<size;i++){
            sum+=salary[i];
        } 
-        double average = sum/n;
+        double average = (sum-minSal-maxSal)/n;
         return average;
            
     }
