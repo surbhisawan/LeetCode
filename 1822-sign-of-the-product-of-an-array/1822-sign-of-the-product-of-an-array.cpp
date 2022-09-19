@@ -1,18 +1,33 @@
 class Solution {
 public:
     
-    int arraySign(vector<int>& nums) {
-        int n = nums.size();
-        int count=0;
+    int signFunc(vector<int> nums){
+        int n=nums.size();
+        int ncount=0;
         for(int i=0;i<n;i++){
+            
             if(nums[i]==0)
                 return 0;
-            else if(nums[i]<0)
-                count++;
+            
+            if(nums[i]<0){
+                ncount++;
+            }
         }
-        if(count%2==0)
+        
+        if(ncount%2==0)
             return 1;
-        else 
+        else
             return -1;
+        
+    }
+    
+    int arraySign(vector<int>& nums) {
+        
+        if(signFunc(nums)>0)
+            return 1;
+        else if(signFunc(nums)<0)
+            return -1;
+        else
+            return 0;
     }
 };
