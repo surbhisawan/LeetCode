@@ -12,17 +12,20 @@
 class Solution {
 public:
     
-    void traversal(TreeNode* root, vector<int>& vec){
+    void solve(TreeNode* root, vector<int>& ans){
         if(!root)
             return;
-        vec.push_back(root->val);
-        traversal(root->left, vec);
-        traversal(root->right,vec);
+        
+        ans.push_back(root->val);
+        solve(root->left, ans);
+        solve(root->right, ans);
+        
     }
     
     vector<int> preorderTraversal(TreeNode* root) {
-        vector<int>vec;
-        traversal(root,vec);
-        return vec;
+        vector<int> ans;
+        solve(root, ans);
+        
+        return ans;
     }
 };
