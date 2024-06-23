@@ -1,7 +1,7 @@
  class Solution {
     
     
-    void  dfs(int[][] image, int sr, int sc, int color, boolean[][] visited, int val){
+    void  dfs(int[][] image, int sr, int sc, int color,  int val){
         
         
         
@@ -9,14 +9,10 @@
         
         image[sr][sc] = color;
         
-        visited[sr][sc] = true;
-        
-        
-        
-        dfs(image, sr - 1, sc , color, visited, val);
-        dfs(image, sr + 1, sc , color, visited, val);
-        dfs(image, sr, sc - 1 , color, visited, val);
-        dfs(image, sr, sc + 1, color, visited, val);
+        dfs(image, sr - 1, sc , color, val);
+        dfs(image, sr + 1, sc , color,val);
+        dfs(image, sr, sc - 1 , color, val);
+        dfs(image, sr, sc + 1, color,  val);
         
     }
     
@@ -28,12 +24,7 @@
         
         int val = image[sr][sc];
         
-        int row = image.length;
-        int col = image[0].length;
-        
-        boolean[][] visited = new boolean[row][col];
-        
-        dfs(image, sr, sc, color, visited, val);
+        dfs(image, sr, sc, color, val);
         
         return image;
         
