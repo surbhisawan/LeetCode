@@ -2,11 +2,11 @@ class Solution {
     public int minLength(String s) {
         Stack<Character> stack = new Stack<>();
         
-        for(Character c : s.toCharArray()){
-            if(!stack.isEmpty() && ((stack.peek() == 'A' && c == 'B') || (stack.peek() == 'C' && c == 'D'))){
+        for(int i = 0; i < s.length(); i++){
+            if(!stack.isEmpty() && ((stack.peek() == 'A' && s.charAt(i) == 'B') || (stack.peek() == 'C' && s.charAt(i) == 'D'))){
                 stack.pop();
             }else{
-                stack.push(c);
+                stack.push(s.charAt(i));
             }
         }
         return stack.size();
